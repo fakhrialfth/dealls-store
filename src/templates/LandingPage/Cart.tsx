@@ -73,34 +73,6 @@ const CartsPage = () => {
             align: 'center',
         },
     ];
-    const data: DataType[] = carts
-    const onChange: TableProps<DataType>['onChange'] = (
-        pagination,
-        filters,
-        sorter,
-        extra
-    ) => {
-        console.log('params', pagination, filters, sorter, extra);
-    };
-
-    // Set for data tabs
-    const items: TabsProps['items'] = [
-        {
-            key: '1',
-            label: `Tab 1`,
-            children: `Content of Tab Pane 1`,
-        },
-        {
-            key: '2',
-            label: `Tab 2`,
-            children: `Content of Tab Pane 2`,
-        },
-        {
-            key: '3',
-            label: `Tab 3`,
-            children: `Content of Tab Pane 3`,
-        },
-    ];
 
     return (
         <Fragment>
@@ -121,7 +93,7 @@ const CartsPage = () => {
                                                     </Col>
                                                     <Col className="flex" span={12}>
                                                         <div className=" font-bold mr-2"># of Items: { }</div>
-                                                        <div>{e.totalProducts}</div>
+                                                        <div>{e?.totalProducts}</div>
                                                     </Col>
                                                 </Row>
                                                 <Row>
@@ -131,14 +103,14 @@ const CartsPage = () => {
                                                     </Col>
                                                     <Col className="flex" span={12}>
                                                         <div className=" font-bold mr-2">Total Amount: </div>
-                                                        <div>{e.total} </div>
+                                                        <div>{e?.total} </div>
                                                     </Col>
                                                 </Row>
                                             </Card>
                                             <Table
                                                 // rowClassName={(record, index) => record.rowSpan != 0 && index != 0 ? "rowClassName1" : ""}
                                                 columns={columns}
-                                                dataSource={e.products}
+                                                dataSource={e?.products}
                                                 pagination={{
                                                     pageSize: 10
                                                 }}
