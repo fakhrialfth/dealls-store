@@ -13,13 +13,18 @@
     "deploy:vercel": "vercel"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.15",
+    "@types/lodash": "^4.14.195",
     "@types/node": "20.4.3",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
+    "antd": "^5.7.2",
+    "chart.js": "^4.3.0",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
     "next": "13.4.12",
     "react": "18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.2",
     "typescript": "5.1.6"
@@ -27,6 +32,7 @@
   "devDependencies": {
     "@tanstack/react-query": "^4.32.0",
     "@tanstack/react-query-devtools": "^4.32.0",
+    "@types/react-chartjs-2": "^2.5.7",
     "autoprefixer": "^10.4.14",
     "eslint-config-prettier": "^8.8.0",
     "postcss": "^8.4.27",
