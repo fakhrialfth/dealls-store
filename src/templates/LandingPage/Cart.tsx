@@ -4,7 +4,7 @@ import { Container } from "./components/Container";
 import { Link } from "./components/Link";
 import { Paragraph } from "./components/Paragraph";
 import { Section } from "./components/Section";
-import { H1, H2, H3 } from "./components/headings";
+import { H3 } from "./components/headings";
 import { Fragment, useEffect, useState } from "react";
 import type { ColumnsType, TableProps } from 'antd/es/table';
 

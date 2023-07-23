@@ -5,19 +5,19 @@ import { Link } from "./components/Link";
 import { Paragraph } from "./components/Paragraph";
 import { Section } from "./components/Section";
 import { Subtitle } from "./components/Subtitle";
-import { H1, H2, H3 } from "./components/headings";
+import { H1, H3 } from "./components/headings";
 import { Fragment, useEffect, useState } from "react";
 import type { ColumnsType, TableProps } from 'antd/es/table';
-import { Bar } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+// import { Bar } from 'react-chartjs-2';
+// import {
+//   Chart as ChartJS,
+//   CategoryScale,
+//   LinearScale,
+//   BarElement,
+//   Title,
+//   Tooltip,
+//   Legend,
+// } from 'chart.js';
 
 
 
@@ -81,7 +81,7 @@ const LandingPageTemplate = () => {
     {
       title: 'Product Name',
       dataIndex: 'title',
-      key: 'productName',
+      key: 'title',
       filters: title,
       onFilter: (value: string, record) => record.title.indexOf(value) === 0,
     },
@@ -199,29 +199,29 @@ const LandingPageTemplate = () => {
   }
 
   // Set for Chart
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top' as const,
-      },
-      title: {
-        display: true,
-        text: 'Chart.js Bar Chart',
-      },
-    },
-  };
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  const dataChart = {
-    labels,
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: [65, 59, 80, 81, 56, 55, 40],
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-    ],
-  };
+  // const options = {
+  //   responsive: true,
+  //   plugins: {
+  //     legend: {
+  //       position: 'top' as const,
+  //     },
+  //     title: {
+  //       display: true,
+  //       text: 'Chart.js Bar Chart',
+  //     },
+  //   },
+  // };
+  // const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  // const dataChart = {
+  //   labels,
+  //   datasets: [
+  //     {
+  //       label: 'Dataset 1',
+  //       data: [65, 59, 80, 81, 56, 55, 40],
+  //       backgroundColor: 'rgba(255, 99, 132, 0.5)',
+  //     },
+  //   ],
+  // };
 
   return (
     <Fragment>
@@ -282,8 +282,9 @@ const LandingPageTemplate = () => {
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
-          <button onClick={handleCancel} type="button" className="py-1 px-3 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-purple-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Cancel</button>,
+          <button key={1} onClick={handleCancel} type="button" className="py-1 px-3 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-purple-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Cancel</button>,
           <button
+            key={2}
             disabled={productName === "" ? true : false}
             onClick={addProduct}
             type="button"
