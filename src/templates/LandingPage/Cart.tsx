@@ -1,12 +1,11 @@
 import { Table, Tabs, Card, Col, Row, Tag, Skeleton } from "antd";
-import type { TabsProps } from 'antd';
 import { Container } from "./components/Container";
 import { Link } from "./components/Link";
 import { Paragraph } from "./components/Paragraph";
 import { Section } from "./components/Section";
 import { H3 } from "./components/headings";
 import { Fragment, useEffect, useState } from "react";
-import type { ColumnsType, TableProps } from 'antd/es/table';
+import type { ColumnsType } from 'antd/es/table';
 
 const CartsPage = () => {
     const [carts, setCarts] = useState([])
@@ -74,6 +73,12 @@ const CartsPage = () => {
         },
     ];
 
+    interface Cart {
+        totalProducts: number,
+        total: number,
+        products: any,
+    }
+
     return (
         <Fragment>
             <div className={" mt-16 p-6 bg-white border border-gray-200 rounded-sm shadow dark:bg-gray-800 dark:border-gray-700"}>
@@ -82,7 +87,7 @@ const CartsPage = () => {
                         <div className="px-4">
                             <H3 className="text-purple-700" >Carts</H3>
                             <Tabs>
-                                {carts?.map((e, i) => {
+                                {carts?.map((e: Cart, i) => {
                                     return (
                                         <Tabs.TabPane forceRender={true} tab={`Cart ${i + 1}`} key={i}>
                                             <Card className="mb-5 mt-5 bg-gray-200">
