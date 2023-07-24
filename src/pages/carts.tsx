@@ -1,7 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import CartsPage from "../templates/LandingPage/Cart";
-// import LandingPageTemplate from "../templates/LandingPage/LandingPageTemplate";
+import CartsPage from "../templates/Cart";
 
 const Index: NextPage = () => {
   return (

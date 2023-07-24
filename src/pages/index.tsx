@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import LandingPageTemplate from "../templates/LandingPage/LandingPageTemplate";
+import LandingPageTemplate from "../templates/LandingPageTemplate";
 
 const Index: NextPage = () => {
   return (

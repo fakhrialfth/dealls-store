@@ -1,4 +1,5 @@
-import { Table, Input, Modal, Row, Col, message, Skeleton } from "antd";
+import dynamic from 'next/dynamic';
+import { Table, Input, Modal, Row, Col, message, Skeleton, Tabs } from "antd";
 import { isEqual, uniqWith } from 'lodash'
 import { Container } from "./components/Container";
 import { Link } from "./components/Link";
@@ -8,18 +9,6 @@ import { Subtitle } from "./components/Subtitle";
 import { H1, H3 } from "./components/headings";
 import { Fragment, useEffect, useState } from "react";
 import type { ColumnsType, TableProps } from 'antd/es/table';
-// import { Bar } from 'react-chartjs-2';
-// import {
-//   Chart as ChartJS,
-//   CategoryScale,
-//   LinearScale,
-//   BarElement,
-//   Title,
-//   Tooltip,
-//   Legend,
-// } from 'chart.js';
-
-
 
 const LandingPageTemplate = () => {
   const [products, setProduct] = useState([])
@@ -33,11 +22,12 @@ const LandingPageTemplate = () => {
   const [loading, setLoading] = useState(true)
   const { Search } = Input;
 
+  const DynamicColumnChart: any = dynamic(() => import('./ChartBar'), { ssr: false });
+
   useEffect(() => {
     fetchProduct()
   }, []);
   const fetchProduct = () => {
-    // setLoading(true)
     fetch("https://dummyjson.com/products/")
       .then(response => {
         return response.json()
@@ -62,27 +52,33 @@ const LandingPageTemplate = () => {
     category: number;
   }
 
-  interface Title {
+  interface Item {
     title?: string,
     brand?: string,
     category?: string,
 
   }
-  const titles = products.map((item: Title) => ({
+
+  const titles = products.map((item: Item) => ({
     text: item.title,
     value: item.title,
   }));
   const title: any = uniqWith(titles, isEqual)
-  const brands = products.map((item: Title) => ({
+  console.log('jj', title);
+
+
+  const brands = products.map((item: Item) => ({
     text: item.brand,
     value: item.brand,
   }));
   const brand: any = uniqWith(brands, isEqual)
-  const categorys = products.map((item: Title) => ({
+
+  const categorys = products.map((item: Item) => ({
     text: item.category,
     value: item.category,
   }));
   const category: any = uniqWith(categorys, isEqual)
+
   const columns: ColumnsType<DataType> = [
     {
       title: 'Product Name',
@@ -204,31 +200,6 @@ const LandingPageTemplate = () => {
       })
   }
 
-  // Set for Chart
-  // const options = {
-  //   responsive: true,
-  //   plugins: {
-  //     legend: {
-  //       position: 'top' as const,
-  //     },
-  //     title: {
-  //       display: true,
-  //       text: 'Chart.js Bar Chart',
-  //     },
-  //   },
-  // };
-  // const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  // const dataChart = {
-  //   labels,
-  //   datasets: [
-  //     {
-  //       label: 'Dataset 1',
-  //       data: [65, 59, 80, 81, 56, 55, 40],
-  //       backgroundColor: 'rgba(255, 99, 132, 0.5)',
-  //     },
-  //   ],
-  // };
-
   return (
     <Fragment>
       {contextHolder}
@@ -264,7 +235,9 @@ const LandingPageTemplate = () => {
               />
             </div>
 
-            {/* <Bar options={options} data={dataChart} /> */}
+            <div>
+              <DynamicColumnChart />
+            </div>
 
           </main>
           <footer>
@@ -299,7 +272,7 @@ const LandingPageTemplate = () => {
       >
         <Row className='mb-2'>
           <Col span={6}><p>Product Name</p></Col>
-          <Col className="flex items-center" span={16}><span className="mr-2">:</span><Input value={productName} onChange={(e: any) =>changeProduct(e)} /></Col>
+          <Col className="flex items-center" span={16}><span className="mr-2">:</span><Input value={productName} onChange={(e: any) => changeProduct(e)} /></Col>
         </Row>
         <Row className='mb-2'>
           <Col span={6}><p>Brand</p></Col>

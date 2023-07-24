@@ -76,7 +76,7 @@ const CartsPage = () => {
     interface Cart {
         totalProducts: number,
         total: number,
-        products: any,
+        products: any
     }
 
     return (

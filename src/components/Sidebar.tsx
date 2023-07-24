@@ -2,7 +2,6 @@ import { forwardRef } from 'react';
 import Link from 'next/link';
 import { BsFillHouseDoorFill, BsFillCartFill } from "react-icons/bs"
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 
 type Props = {
     showNav: boolean;
