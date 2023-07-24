@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import Dashboard from "../templates/Dashboard";
+import Dashboard from "../templates/LandingPage/Dashboard";
 
 const Index: NextPage = () => {
   return (
