@@ -10,7 +10,7 @@ import { H1, H3 } from "./components/headings";
 import { Fragment, useEffect, useState } from "react";
 import type { ColumnsType, TableProps } from 'antd/es/table';
 
-const LandingPageTemplate = () => {
+const Dashboard = () => {
   const [products, setProduct] = useState([])
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [productName, setProductName] = useState("");
@@ -295,4 +295,4 @@ const LandingPageTemplate = () => {
   );
 };
 
-export default LandingPageTemplate;
+export default Dashboard;
