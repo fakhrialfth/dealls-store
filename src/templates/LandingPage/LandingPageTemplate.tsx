@@ -62,35 +62,41 @@ const LandingPageTemplate = () => {
     category: number;
   }
 
-  const titles = products.map((item) => ({
+  interface Title {
+    title?: string,
+    brand?: string,
+    category?: string,
+
+  }
+  const titles = products.map((item: Title) => ({
     text: item.title,
     value: item.title,
   }));
-  const title = uniqWith(titles, isEqual)
-  const brands = products.map((item) => ({
+  const title: any = uniqWith(titles, isEqual)
+  const brands = products.map((item: Title) => ({
     text: item.brand,
     value: item.brand,
   }));
-  const brand = uniqWith(brands, isEqual)
-  const categorys = products.map((item) => ({
+  const brand: any = uniqWith(brands, isEqual)
+  const categorys = products.map((item: Title) => ({
     text: item.category,
     value: item.category,
   }));
-  const category = uniqWith(categorys, isEqual)
+  const category: any = uniqWith(categorys, isEqual)
   const columns: ColumnsType<DataType> = [
     {
       title: 'Product Name',
       dataIndex: 'title',
       key: 'title',
       filters: title,
-      onFilter: (value: string, record) => record.title.indexOf(value) === 0,
+      onFilter: (value: string, record: any) => record.title.indexOf(value) === 0,
     },
     {
       title: 'Brand',
       dataIndex: 'brand',
       key: 'brand',
       filters: brand,
-      onFilter: (value: string, record) => record.brand.indexOf(value) === 0,
+      onFilter: (value: string, record: any) => record.brand.indexOf(value) === 0,
     },
     {
       title: 'Price',
@@ -107,7 +113,7 @@ const LandingPageTemplate = () => {
       dataIndex: 'category',
       key: 'category',
       filters: category,
-      onFilter: (value: string, record) => record.category.indexOf(value) === 0,
+      onFilter: (value: string, record: any) => record.category.indexOf(value) === 0,
     },
   ];
 
