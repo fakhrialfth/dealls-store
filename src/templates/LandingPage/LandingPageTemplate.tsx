@@ -89,14 +89,14 @@ const LandingPageTemplate = () => {
       dataIndex: 'title',
       key: 'title',
       filters: title,
-      onFilter: (value: string, record: any) => record.title.indexOf(value) === 0,
+      onFilter: (value: string | number | boolean, record: any) => record.title.indexOf(value) === 0,
     },
     {
       title: 'Brand',
       dataIndex: 'brand',
       key: 'brand',
       filters: brand,
-      onFilter: (value: string, record: any) => record.brand.indexOf(value) === 0,
+      onFilter: (value: string | number | boolean, record: any) => record.brand.indexOf(value) === 0,
     },
     {
       title: 'Price',
@@ -113,7 +113,7 @@ const LandingPageTemplate = () => {
       dataIndex: 'category',
       key: 'category',
       filters: category,
-      onFilter: (value: string, record: any) => record.category.indexOf(value) === 0,
+      onFilter: (value: string | number | boolean, record: any) => record.category.indexOf(value) === 0,
     },
   ];
 
@@ -299,23 +299,23 @@ const LandingPageTemplate = () => {
       >
         <Row className='mb-2'>
           <Col span={6}><p>Product Name</p></Col>
-          <Col className="flex items-center" span={16}><span className="mr-2">:</span><Input value={productName} onChange={changeProduct} /></Col>
+          <Col className="flex items-center" span={16}><span className="mr-2">:</span><Input value={productName} onChange={(e: any) =>changeProduct(e)} /></Col>
         </Row>
         <Row className='mb-2'>
           <Col span={6}><p>Brand</p></Col>
-          <Col className="flex items-center" span={16}><span className="mr-2">:</span><Input value={brandName} onChange={changeBrand} /></Col>
+          <Col className="flex items-center" span={16}><span className="mr-2">:</span><Input value={brandName} onChange={(e: any) => changeBrand(e)} /></Col>
         </Row>
         <Row className='mb-2'>
           <Col span={6}><p>Price</p></Col>
-          <Col className="flex items-center" span={16}><span className="mr-2">:</span><Input value={price} onChange={changePrice} /></Col>
+          <Col className="flex items-center" span={16}><span className="mr-2">:</span><Input value={price} onChange={(e: any) => changePrice(e)} /></Col>
         </Row>
         <Row className='mb-2'>
           <Col span={6}><p>Stock</p></Col>
-          <Col className="flex items-center" span={16}><span className="mr-2">:</span><Input value={stock} onChange={changeStock} /></Col>
+          <Col className="flex items-center" span={16}><span className="mr-2">:</span><Input value={stock} onChange={(e: any) => changeStock(e)} /></Col>
         </Row>
         <Row className='mb-2'>
           <Col span={6}><p>Category</p></Col>
-          <Col className="flex items-center" span={16}><span className="mr-2">:</span><Input value={categoryName} onChange={changeCategory} /></Col>
+          <Col className="flex items-center" span={16}><span className="mr-2">:</span><Input value={categoryName} onChange={(e: any) => changeCategory(e)} /></Col>
         </Row>
       </Modal>
     </Fragment>
